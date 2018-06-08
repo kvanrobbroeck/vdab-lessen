@@ -4,6 +4,11 @@ public class Betaling {
     double price;
     int quantity;
 
+    public Betaling(double price, int quantity) {
+        this.price = price;
+        this.quantity = quantity;
+    }
+
     protected double tussenberekening() {
         double totaal = price * quantity;
         if(quantity > 10) {
