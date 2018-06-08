@@ -2,7 +2,7 @@ package be.vdab.beehive;
 
 import java.util.Random;
 
-public class Soldier {
+public class Soldier extends Bee {
     /**
      * The name of our hero.
      */
@@ -27,6 +27,7 @@ public class Soldier {
      * Constructor.
      */
     public Soldier(String name, int weapon, int armour) {
+        super(name);
         this.hitpoints = 100;   // All soldiers start with same hitpoints
         this.name = name;
         this.weapon = weapon;
@@ -71,5 +72,33 @@ public class Soldier {
      */
     public boolean isDead() {
         return hitpoints <= 0;
+    }
+
+
+    @Override
+    public void fly() {
+        System.out.println("Flying boldly and bravely");
+    }
+
+    @Override
+    public String toString() {
+        return "Soldier{" +
+                "name='" + name + '\'' +
+                ", hitpoints=" + hitpoints +
+                ", weapon=" + weapon +
+                ", armour=" + armour +
+                '}';
+    }
+
+    public boolean equals(Object o) {
+        Soldier that = ((Soldier)o);
+        return this.name.equals(that.name) && this.hitpoints == that.hitpoints
+                && this.armour == that.armour && this.weapon == that.weapon;
+    }
+
+    @Override
+    public void contribute(int input) {
+        System.out.println("Soldier contributes to the hive as");
+        System.out.println("Fight!!! Defend!!!");
     }
 }

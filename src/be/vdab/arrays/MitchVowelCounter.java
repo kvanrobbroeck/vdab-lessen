@@ -1,4 +1,4 @@
-package be.vdab;
+package be.vdab.arrays;
 
 import java.util.Arrays;
 import java.util.Scanner;

@@ -12,7 +12,7 @@ public class FlowersMain {
             Flower violet = new Flower(7, "violet", "Violet");
             maja.gatherNectar(violet);
         }
-        System.out.println(maja.load + "/" + maja.capacity);
+        System.out.println(maja.getLoad() + "/" + maja.getCapacity());
     }
 
 

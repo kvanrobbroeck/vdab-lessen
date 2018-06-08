@@ -1,9 +1,8 @@
 package be.vdab.beehive;
 
-public class Worker {
-    String name;
-    int capacity;
-    int load;
+public class Worker extends Bee {
+    private int capacity;
+    private int load;
 
     public Worker() {
         this("John Doe", 0, 100);
@@ -14,8 +13,8 @@ public class Worker {
     }
 
     public Worker(String name, int load, int capacity) {
+        super(name);
         System.out.println("Create new worker");
-        this.name = name;
         this.capacity = capacity;
         this.load = load;
     }
@@ -27,7 +26,7 @@ public class Worker {
         load += f.nectar;
 
         System.out.println("Worker "
-                + this.name + " visits flower "
+                + getName() + " visits flower "
                 + f.name + " to gather "
                 + f.nectar
                 + " amount of nectar so that she is now loaded "
@@ -35,5 +34,26 @@ public class Worker {
         );
         f.nectar = 0;
         return load >= capacity;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getLoad() {
+        return load;
+    }
+
+    @Override
+    public void fly() {
+        if(((double)load) / capacity > 0.9) {
+            System.out.println("ignite afterburners for extra boosting power");
+        }
+        super.fly();
+    }
+
+    @Override
+    public void contribute(int input) {
+        System.out.println("CONTRUBTE FROM WORKER");
     }
 }
